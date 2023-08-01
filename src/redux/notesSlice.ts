@@ -14,6 +14,7 @@ interface Note {
 interface NotesState {
   items: Note[],
   note: Note | '',
+  category: string;
 }
 const notesItems = [
   {
@@ -83,6 +84,7 @@ const notesItems = [
 const initialState: NotesState = {
   items: notesItems,
   note: '',
+  category: '',
 }
 const notesSlice = createSlice({
   name: 'notes',
@@ -113,19 +115,24 @@ const notesSlice = createSlice({
         note.archived = false;
       }
     },
-    itemNote: (state, action: PayloadAction<number>) => {
-      const note = state.items.find((note) => note.id === action.payload);
+    itemNote: (state, action: PayloadAction<Note>) => {
+      const { id } = action.payload;
+      const note = state.items.find((note) => note.id === id);
       if (note) {
         state.note = note;
       }
       
+    },
+    
+    setCategory:(state, action: PayloadAction<string>) => { 
+      state.category = action.payload;
     }
 
   
   }
 });
 
-export const { addNote,editNote, deleteNote, archiveNote, unarchiveNote, itemNote } = notesSlice.actions;
+export const { addNote,editNote, deleteNote, archiveNote, unarchiveNote, itemNote, setCategory } = notesSlice.actions;
 
 export default notesSlice.reducer;
 

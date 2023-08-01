@@ -1,14 +1,17 @@
-import { useAppSelector } from "../../hooks";
-import { RowTable } from "../RowTable/RowTable";
-import { HeaderTableNotes } from "../HeaderTable/HeaderTableNotes";
+import { ReactNode } from 'react'
 
+interface TableProps {
+  children?: ReactNode;
+}
 
-export const Table = () => {
-    const notes = useAppSelector(state => state.notes.items);
-    return <ul>
-        <HeaderTableNotes />
-        {notes.filter((note) => note.archived !== true).map((note) => (
-          <RowTable key={note.id} {...note} />
-      ) )}
+export const Table: React.FC<TableProps> = ({children}) => {
+ 
+  return <ul>
+      {children}
     </ul>
 }
+// {categories.map(category => <SummaryNotes key={category} category={category} />)}
+// {
+//   notes.filter((note) => note.archived !== true).map((note) => (
+//           <RowTable key={note.id} {...note} />
+//         ))}

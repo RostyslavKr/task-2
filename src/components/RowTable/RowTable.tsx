@@ -2,7 +2,7 @@
 // @ts-ignore
 import sprite from './../../images/sprite.svg';
 import { useAppDispatch } from '../../hooks';
-import { deleteNote, archiveNote} from '../../redux/notesSlice';
+import { deleteNote, archiveNote, itemNote} from '../../redux/notesSlice';
 import { setShowModal, setModalType } from '../../redux/modalSlice';
 
 interface RowTableProps {
@@ -12,12 +12,23 @@ interface RowTableProps {
   content: string;
   category: string;
   dates: string[];
+  archived: boolean;
 }
 
-export const RowTable: React.FC<RowTableProps> = ({ id, name, created, category, content, dates }) => {
+export const RowTable: React.FC<RowTableProps> = ({ id, name, created, category, content, dates, archived }) => {
     const dispatch = useAppDispatch();
 
-    const handleEditNote = () => { 
+      const handleEditNote = () => { 
+      const note: RowTableProps = {
+            id,
+            name,
+            created,
+            category,
+            content,
+            dates,
+            archived,
+            }
+    dispatch(itemNote(note));        
     dispatch(setModalType('edit'));
     dispatch(setShowModal());
     }
