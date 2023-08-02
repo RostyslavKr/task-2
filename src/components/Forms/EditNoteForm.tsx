@@ -13,7 +13,6 @@ interface Note {
 }
 
 interface EditNoteFormProps {
-  // eslint-disable-next-line
   note: any; 
   onClose: () => void;
 }
