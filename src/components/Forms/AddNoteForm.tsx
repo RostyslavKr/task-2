@@ -53,24 +53,24 @@ export const AddNoteForm: React.FC<AddNoteFormProps> = ({onClose}) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Name:
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+    <form className="w-52 font-mono" onSubmit={handleSubmit}>
+      <label className="flex flex-col">
+        Name
+        <input className="border border-solid border-emerald-500 rounded-md p-3 pl-2" type="text" value={name} onChange={(e) => setName(e.target.value)} />
       </label>
-      <label>
-        Content:
-        <input type="text" value={content} onChange={(e) => setContent(e.target.value)} />
+      <label className="flex flex-col">
+        Content
+        <input className="border border-solid border-emerald-500 rounded-md p-3 pl-2" type="text" value={content} onChange={(e) => setContent(e.target.value)} />
       </label>
-      <label>
-        Category:
-        <select value={category} onChange={(e) => setCategory(e.target.value)}>
+      <label className="flex flex-col pb-3">
+        Category
+        <select className="border border-solid border-emerald-500 rounded-md p-3 pl-2" value={category} onChange={(e) => setCategory(e.target.value)}>
           <option value="Task">Task</option>
           <option value="Random Thought">Random Thought</option>
           <option value="Idea">Idea</option>
         </select>
       </label>
-      <button type="submit">Create Note</button>
+      <button className="py-1.5 px-2.5 bg-green-500 text-white font-medium rounded-md hover:bg-green-600 focus:bg-green-600" type="submit">Create Note</button>
     </form>
   );
 };

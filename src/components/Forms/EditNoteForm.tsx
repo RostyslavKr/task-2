@@ -13,6 +13,7 @@ interface Note {
 }
 
 interface EditNoteFormProps {
+  // eslint-disable-next-line
   note: any; 
   onClose: () => void;
 }
@@ -48,24 +49,24 @@ export const EditNoteForm: React.FC<EditNoteFormProps> = ({ note, onClose }) => 
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <form className="w-52 font-mono" onSubmit={handleSubmit}>
+      <label className="flex flex-col">
         Name:
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+        <input className="border border-solid border-yellow-500 rounded-md p-3 pl-2" type="text" value={name} onChange={(e) => setName(e.target.value)} />
       </label>
-      <label>
+      <label className="flex flex-col">
         Content:
-        <input type="text" value={content} onChange={(e) => setContent(e.target.value)} />
+        <input className="border border-solid border-yellow-500 rounded-md p-3 pl-2" type="text" value={content} onChange={(e) => setContent(e.target.value)} />
       </label>
-      <label>
+      <label className="flex flex-col pb-3">
         Category:
-        <select value={category} onChange={(e) => setCategory(e.target.value)}>
+        <select className="border border-solid border-yellow-500 rounded-md p-3 pl-2" value={category} onChange={(e) => setCategory(e.target.value)}>
           <option value="Task">Task</option>
           <option value="Random Thought">Random Thought</option>
           <option value="Idea">Idea</option>
         </select>
       </label>
-      <button type="submit">Edit Note</button>
+      <button className="py-1.5 px-2.5 bg-yellow-300 text-white font-medium rounded-md hover:bg-yellow-500 focus:bg-yellow-500" type="submit">Edit Note</button>
     </form>
   );
 };

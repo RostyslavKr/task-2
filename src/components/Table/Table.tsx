@@ -6,12 +6,7 @@ interface TableProps {
 
 export const Table: React.FC<TableProps> = ({children}) => {
  
-  return <ul>
+  return <ul className='flex flex-col '>
       {children}
     </ul>
 }
-// {categories.map(category => <SummaryNotes key={category} category={category} />)}
-// {
-//   notes.filter((note) => note.archived !== true).map((note) => (
-//           <RowTable key={note.id} {...note} />
-//         ))}

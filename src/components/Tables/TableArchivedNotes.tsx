@@ -7,13 +7,13 @@ import { RowArchivedTable } from "../RowArchivedTable/RowArchivedTable";
 export const HeaderTableArchivedNotes: React.FC = () => {
   const notes = useAppSelector(state => state.notes.items);
   const category = useAppSelector(state => state.notes.category);
-    return <><li>
-        <div>Name</div>
-        <div>Created</div>
-        <div>Category</div>
-        <div>Content</div>
-        <div>Dates</div>
-        <div>
+    return <><li className='flex items-center mt-5 px-4  py-5 rounded-md bg-green-500 text-white uppercase font-semibold fill-white font-mono'>
+        <div className='w-52'>Name</div>
+        <div className='w-52'>Created</div>
+        <div className='w-52'>Category</div>
+        <div className='w-52'>Content</div>
+        <div className='w-52'>Dates</div>
+        <div className='w-52'>
           <svg width="18px" height="18px">
             <use href={sprite + "#icon-box-remove"}></use>
           </svg>

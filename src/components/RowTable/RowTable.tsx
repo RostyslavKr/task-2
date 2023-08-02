@@ -33,22 +33,22 @@ export const RowTable: React.FC<RowTableProps> = ({ id, name, created, category,
     dispatch(setShowModal());
     }
     
-    return <li>
-        <div>{name}</div>
-        <div>{created}</div>
-        <div>{category}</div>
-        <div>{content}</div>
-        <div>{dates}</div>
-        <div>
-        <button onClick={handleEditNote}><svg  width="18px" height="18px">
+    return <li className='flex items-center py-4 px-4 my-1.5 rounded-md bg-green-100 text-black  fill-white font-mono hover:bg-green-200 focus:bg-green-200 '>
+        <div className='w-52 mr-4 '>{name}</div>
+        <div className='w-52 mr-4 '>{created}</div>
+        <div className='w-52 mr-4 '>{category}</div>
+        <div className='w-52 mr-4 '>{content}</div>
+        <div className='w-52 mr-4 '>{dates}</div>
+        <div className='flex items-center justify-between w-52'>
+        <button className='p-2.5 bg-yellow-300 rounded-3xl cursor-pointer hover:scale-105 focus:scale-105' onClick={handleEditNote}><svg  width="18px" height="18px">
                 <use href={sprite + "#icon-pencil"}></use>
           </svg>
           </button>
-          <button onClick={() => dispatch(archiveNote(id))}><svg  width="18px" height="18px">
+          <button className='p-2.5 bg-indigo-500 rounded-3xl cursor-pointer hover:scale-105 focus:scale-105' onClick={() => dispatch(archiveNote(id))}><svg  width="18px" height="18px">
                 <use href={sprite + "#icon-box-add"}></use>
           </svg>
           </button>
-          <button onClick={() => dispatch(deleteNote(id))}>
+          <button className='p-2.5 bg-red-500 rounded-3xl cursor-pointer hover:scale-105 focus:scale-105' onClick={() => dispatch(deleteNote(id))}>
           <svg width="18px" height="18px">
                 <use href={sprite + "#icon-bin2"}></use>
           </svg>

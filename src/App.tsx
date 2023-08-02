@@ -12,13 +12,13 @@ function App() {
     dispatch(setModalType('create'));
     dispatch(setShowModal());
   };
-  return <>
+  return <div className="mr-auto ml-auto px-5 pb-5">
     <Table> <HeaderTableNotes /> </Table>
-    <button onClick={handleCreateNote}>Create Note</button>
+    <button className="py-1.5 px-2.5 bg-green-500 text-white font-medium rounded-md hover:bg-green-600 focus:bg-green-600" onClick={handleCreateNote}>Create Note</button>
     <Table> <HeaderTableNotesSummaryNotes /> </Table>
     {showModal && (<Modal />)}
     
-  </>
+  </div>
 }
 
 export default App;
