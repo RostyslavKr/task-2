@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useAppDispatch } from "./../../hooks";
 import { addNote } from "./../../redux/notesSlice";
 import createDate from "../../utils/createDate";
@@ -27,7 +28,7 @@ export const AddNoteForm: React.FC<AddNoteFormProps> = ({onClose}) => {
     e.preventDefault();
 
     if (!name || !content || !category) {
-      alert("Please fill in all fields before creating a note.");
+      Notify.warning("Please fill in all fields before creating a note.");
       return;
     }
 

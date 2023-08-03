@@ -1,3 +1,4 @@
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useState } from "react";
 import { useAppDispatch } from ".//../../hooks";
 import { editNote } from "../../redux/notesSlice";
@@ -21,14 +22,14 @@ export const EditNoteForm: React.FC<EditNoteFormProps> = ({ note, onClose }) => 
   const [name, setName] = useState(note.name);
   const [content, setContent] = useState(note.content);
   const [category, setCategory] = useState(note.category);
-
+ 
   const dispatch = useAppDispatch();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!name || !content || !category) {
-      alert("Please fill in all fields before editing the note.");
+      Notify.warning("Please fill in all fields before creating a note.");
       return;
     }
 
